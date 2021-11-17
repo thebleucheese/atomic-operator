@@ -826,7 +826,7 @@
 <p><img alt="" src="atomic-operator-logo.svg" /></p>
 <p>This python package is used to execute Atomic Red Team tests (Atomics) across multiple operating system environments.</p>
 <blockquote>
-<p>Current Version: v0.3.1 (<a href="CHANGELOG/">What's new?</a>)</p>
+<p>Current Version: v0.4.3 (<a href="CHANGELOG/">What's new?</a>)</p>
 </blockquote>
 <h2 id="why">Why?</h2>
 <p><code>atomic-operator</code> enables security professionals to test their detection and defensive capabilities against prescribed techniques defined within <a href="https://github.com/redcanaryco/atomic-red-team">atomic-red-team</a>. By utilizing a testing framework such as <code>atomic-operator</code>, you can identify both your defensive capabilities as well as gaps in defensive coverage.</p>
@@ -893,6 +893,9 @@ atomic-operator run --atomics-path &quot;/tmp/some_directory/redcanaryco-atomic-
 <pre><code class="language-bash"># This will run ALL tests compatiable with your local operating system
 atomic-operator run --atomics-path &quot;/tmp/some_directory/redcanaryco-atomic-red-team-3700624&quot; --hosts &quot;10.32.1.0&quot; --username &quot;my_username&quot; --password &quot;my_password&quot;
 </code></pre>
+<blockquote>
+<p>When running commands remotely against Windows hosts you may need to configure PSRemoting. See details here: <a href="windows-remote/">Windows Remoting</a></p>
+</blockquote>
 <h3 id="additional-parameters">Additional parameters</h3>
 <p>You can see additional parameters by running the following command:</p>
 <pre><code class="language-bash">atomic-operator run -- --help
@@ -910,8 +913,8 @@ DESCRIPTION
 FLAGS
     --techniques=TECHNIQUES
         Type: list
-        Default: ['All']
-        One or more defined techniques by attack_technique ID. Defaults to 'All'.
+        Default: ['all']
+        One or more defined techniques by attack_technique ID. Defaults to 'all'.
     --test_guids=TEST_GUIDS
         Type: list
         Default: []
@@ -919,15 +922,18 @@ FLAGS
     --atomics_path=ATOMICS_PATH
         Default: '/U...
         The path of Atomic tests. Defaults to os.getcwd().
-    --check_dependencies=CHECK_DEPENDENCIES
+    --check_prereqs=CHECK_PREREQS
         Default: False
-        Whether or not to check for dependencies. Defaults to False.
+        Whether or not to check for prereq dependencies (prereq_comand). Defaults to False.
     --get_prereqs=GET_PREREQS
         Default: False
         Whether or not you want to retrieve prerequisites. Defaults to False.
     --cleanup=CLEANUP
         Default: False
         Whether or not you want to run cleanup command(s). Defaults to False.
+    --copy_source_files=COPY_SOURCE_FILES
+        Default: True
+        Whether or not you want to copy any related source (src, bin, etc.) files to a remote host. Defaults to True.
     --command_timeout=COMMAND_TIMEOUT
         Default: 20
         Timeout duration for each command. Defaults to 20.
@@ -937,6 +943,9 @@ FLAGS
     --prompt_for_input_args=PROMPT_FOR_INPUT_ARGS
         Default: False
         Whether you want to prompt for input arguments for each test. Defaults to False.
+    --return_atomics=RETURN_ATOMICS
+        Default: False
+        Whether or not you want to return atomics instead of running them. Defaults to False.
     --config_file=CONFIG_FILE
         Type: Optional[]
         Default: None
@@ -956,6 +965,10 @@ FLAGS
         Type: Optional[]
         Default: None
         Path to a SSH Key for authentication of remote connections. Defaults to None.
+    --private_key_string=PRIVATE_KEY_STRING
+        Type: Optional[]
+        Default: None
+        A private SSH Key string used for authentication of remote connections. Defaults to None.
     --verify_ssl=VERIFY_SSL
         Default: False
         Whether or not to verify ssl when connecting over RDP (windows). Defaults to False.
