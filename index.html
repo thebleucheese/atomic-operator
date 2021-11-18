@@ -826,7 +826,7 @@
 <p><img alt="" src="atomic-operator-logo.svg" /></p>
 <p>This python package is used to execute Atomic Red Team tests (Atomics) across multiple operating system environments.</p>
 <blockquote>
-<p>Current Version: v0.4.3 (<a href="CHANGELOG/">What's new?</a>)</p>
+<p>Current Version: v0.5.0 (<a href="CHANGELOG/">What's new?</a>)</p>
 </blockquote>
 <h2 id="why">Why?</h2>
 <p><code>atomic-operator</code> enables security professionals to test their detection and defensive capabilities against prescribed techniques defined within <a href="https://github.com/redcanaryco/atomic-red-team">atomic-red-team</a>. By utilizing a testing framework such as <code>atomic-operator</code>, you can identify both your defensive capabilities as well as gaps in defensive coverage.</p>
@@ -937,7 +937,7 @@ FLAGS
     --command_timeout=COMMAND_TIMEOUT
         Default: 20
         Timeout duration for each command. Defaults to 20.
-    --show_details=SHOW_DETAILS
+    --debug=DEBUG
         Default: False
         Whether or not you want to output details about tests being ran. Defaults to False.
     --prompt_for_input_args=PROMPT_FOR_INPUT_ARGS
@@ -1014,7 +1014,7 @@ operator.run(
     get_prereqs=False, 
     cleanup=False, 
     command_timeout=20, 
-    show_details=False,
+    debug=False,
     prompt_for_input_args=False,
     **kwargs
 )
@@ -1093,7 +1093,7 @@ operator.run(
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": {"provider": "mike"}}</script>
     
     
       <script src="assets/javascripts/bundle.1e84347e.min.js"></script>
